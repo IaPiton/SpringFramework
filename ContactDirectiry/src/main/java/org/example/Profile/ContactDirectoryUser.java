@@ -1,9 +1,9 @@
-package org.example;
+package org.example.Profile;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public class ContactDirectiryUser implements ContactDirectiry{
-    @Value("${app.url}")
+public class ContactDirectoryUser implements ContactDirectory {
+    @Value("${app.profile}")
     private String url;
     @Override
     public void contactList() {

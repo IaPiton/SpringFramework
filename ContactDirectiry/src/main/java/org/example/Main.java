@@ -5,9 +5,8 @@ import org.example.Config.ProfileWorker;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+
 
 public class Main {
 

@@ -1,7 +1,7 @@
 package org.example.Config;
 
-import org.example.ContactDirectiry;
-import org.example.ContactDirectiryUser;
+import org.example.Profile.ContactDirectory;
+import org.example.Profile.ContactDirectoryUser;
 import org.springframework.context.annotation.*;
 
 @Configuration
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.*;
 @Profile("user")
 public class UserAppConfig  {
         @Bean
-        public ContactDirectiry contactDirectiry(){
-                return new ContactDirectiryUser();
+        public ContactDirectory contactDirectiry(){
+                return new ContactDirectoryUser();
         }
 }

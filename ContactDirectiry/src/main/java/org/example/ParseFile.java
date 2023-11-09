@@ -2,35 +2,32 @@ package org.example;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
 public class ParseFile {
-    HashMap<String, String> contact = new HashMap<>();
+    private HashMap<String, String> contactMap = new HashMap<>();
+    private ContactDirectoryStart contactDirectoryStart = new ContactDirectoryStart();
 
-
-    public HashMap<String, String> parseContact(File file) throws IOException {
+    public void parseContact(String path) throws IOException {
         try {
+            File file = new File(path);
             BufferedReader reader = new BufferedReader(new FileReader(file));
-
-
             String line;
             while ((line = reader.readLine()) != null) {
-contact = getContactMap(line);
+                contactMap = getContactMap(line);
             }
-
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return contact;
+        contactDirectoryStart.addContactInformation();
     }
-    public HashMap<String, String> getContactMap (String line){
+
+    public HashMap<String, String> getContactMap(String line) {
         String[] contactLine = line.split(";");
-        for(int i = 0; i < contactLine.length; i++){
-            contact.put(contactLine[0],contactLine[1] + ";" + contactLine[2]);
+        for (int i = 0; i < contactLine.length; i++) {
+            contactMap.put(contactLine[0], contactLine[1] + ";" + contactLine[2]);
         }
-        return contact;
+        return contactMap;
     }
 
 }
