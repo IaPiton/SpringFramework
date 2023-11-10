@@ -10,8 +10,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class WriteFile {
-    @Value("${app.profile}")
-    private  String path;
 
     public void writeContact (ContactEntity contactEntity) throws IOException {
         File file = new File(ParseFile.getUrl());

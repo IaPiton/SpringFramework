@@ -7,13 +7,15 @@ import org.springframework.context.annotation.*;
 @Configuration
 @PropertySources(
         value = {
-                @PropertySource("classpath:application-user.properties")
+                @PropertySource("classpath:application-user.properties"),
         }
 )
 @Profile("user")
 public class UserAppConfig  {
         @Bean
-        public ContactDirectory contactDirectiry(){
+        public ContactDirectory contactDirectory(){
+
+
                 return new ContactDirectoryUser();
         }
 }

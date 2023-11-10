@@ -12,10 +12,31 @@ public class ParseFile {
     private static ContactDirectoryStart contactDirectoryStart = new ContactDirectoryStart();
     private static String url;
 
+    public void deleteFile(String path){
+        File file = new File(path);
+        file.deleteOnExit();
+    }
+    public void crateFile(String path) throws IOException {
+        File file = new File(path);
+        url = path;
+        if(file.isFile()){
+            parseContact(path);
+        }else{
+            file.createNewFile();
+            parseContact(path);
+        }
+        contactDirectoryStart.addContactInformation();
+
+    }
     public static void parseContact(String path) throws IOException {
         try {
+            contactMap.clear();
             url = path;
             File file = new File(path);
+            if(file.length() == 0){
+                System.out.println("Список контактов пуст");
+                return;
+            }
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;
             while ((line = reader.readLine()) != null) {
@@ -25,6 +46,7 @@ public class ParseFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static HashMap<String, String> getContactMap(String line) {

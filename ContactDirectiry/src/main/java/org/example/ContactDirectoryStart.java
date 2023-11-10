@@ -15,9 +15,9 @@ public class ContactDirectoryStart {
         System.out.println(start);
         Scanner scanner = new Scanner(System.in);
 
-        while (scanner.hasNext()){
+        while (scanner.hasNext()) {
             String command = scanner.nextLine().toLowerCase();
-            switch (command){
+            switch (command) {
                 case ("add"):
                     createNewContact.addNameContact();
                     break;
@@ -30,7 +30,6 @@ public class ContactDirectoryStart {
             }
         }
     }
-
 
 
     private String contactName;
