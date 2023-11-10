@@ -1,27 +1,32 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ContactDirectoryStart {
-    private AddNewContact addNewContact = new AddNewContact();
+    private CreateNewContact createNewContact = new CreateNewContact();
     private final String start = "Для начала работы программы введите команду: \n" +
             "ADD - Добавить контакт \n" +
             "LIST - Посмотреть список контактов \n" +
             "DELETE - Удалить контакт \n";
 
 
-    public void addContactInformation() {
+    public void addContactInformation() throws IOException {
         System.out.println(start);
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()){
-            String command = scanner.nextLine();
+            String command = scanner.nextLine().toLowerCase();
             switch (command){
                 case ("add"):
-                    addNewContact.addNameContact();
+                    createNewContact.addNameContact();
                     break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + command);
+                case ("list"):
+                    createNewContact.listContact();
+                    break;
+                case ("delete"):
+                    createNewContact.deleteContact();
+                    break;
             }
         }
     }

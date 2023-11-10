@@ -14,7 +14,7 @@ public class DefAppConfig {
 
 
     @Bean
-    public ContactDirectory contactDirectiry() {
+    public ContactDirectory contactDirectory() {
         return new ContactDirectoryDefault();
     }
 }
